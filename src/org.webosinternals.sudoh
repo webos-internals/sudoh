@@ -1,0 +1,7 @@
+description "SuDoh Service"
+
+start on stopped finish
+
+exec /var/usr/sbin/org.webosinternals.sudoh
+
+respawn

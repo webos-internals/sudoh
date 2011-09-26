@@ -1,0 +1,14 @@
+{
+  "role": {
+     "exeName":"/var/usr/sbin/org.webosinternals.sudoh",
+     "type": "regular",
+     "allowedNames": ["org.webosinternals.sudoh"]
+  },
+  "permissions": [
+    {
+      "service":"org.webosinternals.sudoh",
+      "inbound":["*"],
+      "outbound":["*"]
+    }
+  ]
+}

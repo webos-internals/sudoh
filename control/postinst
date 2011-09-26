@@ -28,7 +28,7 @@ rm -f /var/palm/event.d/${CSRVID}
 
 # Install the C service executable
 mkdir -p /var/usr/sbin/
-install -m 755 ${CSRVDIR}/hello /var/usr/sbin/${CSRVID}
+install -m 755 ${CSRVDIR}/sudoh /var/usr/sbin/${CSRVID}
 
 # Install the dbus service
 mkdir -p /var/palm/ls2/services/prv /var/palm/ls2/services/pub

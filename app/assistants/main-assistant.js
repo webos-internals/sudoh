@@ -7,7 +7,6 @@ MainAssistant.prototype.setup = function() {
     this.controller.get('version').innerHTML = $L("v" + Mojo.Controller.appInfo.version);
     this.controller.get('subTitle').innerHTML = $L('Sudo make me a sandwich');	
 
-    this.htmlElement = this.controller.get('htmlDiv');
     this.csrvElement = this.controller.get('csrvDiv');
 };
 
@@ -17,13 +16,11 @@ MainAssistant.prototype.activate = function(params)
     console.log("activate: "+JSON.stringify(params));
 
     if (!this.activated) {
-	this.htmlElement.innerHTML = "SuDoh";
-
 	if (true) {
 	    this.csrvElement.innerHTML = "Calling C Service ...";
 	    this.controller.serviceRequest('palm://org.webosinternals.sudoh', {
 					       method: "sudo",
-					       parameters: {"name": "C Service"},
+					       parameters: {"command": "make me a sandwich"},
 					       onSuccess: this.csrvSuccess.bind(this),
 					       onFailure: this.csrvFailure.bind(this)
 					   });
@@ -31,6 +28,7 @@ MainAssistant.prototype.activate = function(params)
 	else {
 	    this.csrvElement.innerHTML = "C Service not available.";
 	}
+	this.activated = 1;
     }
     else if (params.foo) {
     }

@@ -7,14 +7,13 @@ enyo.kind(
 	    { kind: "ApplicationEvents", onApplicationRelaunch: "applicationRelaunchHandler" },
 	    
 	    { kind: wi.Header, random: [
-		  { weight: 1,  tagline: 'Sudo make me a sandwich' }
+		  { weight: 1,  tagline: 'Sudo Make Me A Sandwich' }
 	      ] },
 	    
-	    { name: 'enyoElement',   kind: 'Item', content: 'Sudoh!' },
 	    { name: 'csrvElement',   kind: 'Item', content: 'Waiting for C Service ...' },
 
 	    { name: 'cservice', kind: 'PalmService',
-	      service: 'palm://org.webosinternals.sudo/', method: 'sudo',
+	      service: 'palm://org.webosinternals.sudoh/', method: 'sudo',
 	      onResponse: 'csrvResponse' }
 	],
 
@@ -28,7 +27,7 @@ enyo.kind(
 	rendered: function() {
 	    this.inherited(arguments);
 	    this.$.csrvElement.setContent("Calling C Service ...");
-	    this.$.cservice.call({ 'name': 'C Service' });
+	    this.$.cservice.call({ 'command': 'make me a sandwich' });
 	},
 	
 	csrvResponse: function(inSender, inResponse, inRequest) {
